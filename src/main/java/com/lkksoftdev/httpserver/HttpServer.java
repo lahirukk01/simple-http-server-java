@@ -22,11 +22,13 @@ public class HttpServer {
 
         LOGGER.info("Server webroot {}", config.getWebroot());
         
-        Thread serverListenerThread;
 
         try {
-            serverListenerThread = new ServerListenerThread(config.getPort(), config.getRequestLimit());
-            serverListenerThread.start();
+        (new ServerListenerThread(config.getPort(), config.getRequestLimit()))
+                .start();
+
+//            ServerListener serverListener = new ServerListener(config.getPort(), config.getRequestLimit());
+//            serverListener.listen();
         } catch (IOException e) {
             throw new HttpConfigurationException("Error occurred while trying to start server", e);
         }

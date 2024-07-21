@@ -64,7 +64,7 @@ public class HttpParser {
             throw new HttpParserException(HttpStatus.URI_TOO_LONG);
         }
 
-        if (requestLineSectionPointer != 3) {
+        if (requestLineSectionPointer != 0 && requestLineSectionPointer != 3) {
             throw new HttpParserException(HttpStatus.BAD_REQUEST);
         }
     }
@@ -123,7 +123,11 @@ public class HttpParser {
         LOGGER.info("Parsing HTTP Request...");
 
         InputStreamReader reader = new InputStreamReader(in);
+
         parseRequestLine(reader);
+
+        if (request.getMethod() == null) return null;
+
         parseHeaders(reader);
 
         if (HTTP_METHODS_WITH_BODY.contains(request.getMethod().name()) &&
