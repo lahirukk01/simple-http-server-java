@@ -1,0 +1,5 @@
+{
+  "port": 4500,
+  "host": "localhost",
+  "webroot": "src/main/resources/webroot"
+}
