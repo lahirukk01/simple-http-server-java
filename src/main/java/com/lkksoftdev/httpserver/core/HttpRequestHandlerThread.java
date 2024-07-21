@@ -33,7 +33,7 @@ public class HttpRequestHandlerThread extends Thread {
         try (InputStream in = socket.getInputStream(); OutputStream out = socket.getOutputStream()) {
 
             String inputContent = extractRequestContent(in);
-//            LOGGER.info("Received input: {}", inputContent);
+            LOGGER.info("Received input: {}", inputContent);
 
             // Construct the HTTP response
             String httpResponse = "HTTP/1.1 200 OK\r\n" +
