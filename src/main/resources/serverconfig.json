@@ -1,5 +1,6 @@
 {
   "port": 4500,
   "host": "localhost",
-  "webroot": "src/main/resources/webroot"
+  "webroot": "src/main/resources/webroot",
+  "requestLimit": 10
 }
